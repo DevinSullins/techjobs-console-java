@@ -2,6 +2,7 @@ package org.launchcode.techjobs.console;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -97,6 +98,7 @@ public class TechJobs {
             in.nextLine();
 
             // Validate user's input
+            //TO DO: add "|| choiceIdx == NaN" or however Java does that
             if (choiceIdx < 0 || choiceIdx >= choiceKeys.length) {
                 System.out.println("Invalid choice. Try again.");
             } else {
@@ -110,7 +112,19 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-        System.out.println("printJobs is not implemented yet");
+        int i = 0;
+        if(!someJobs.isEmpty()) {
+            for (HashMap<String, String> job : someJobs) {
+                i++;
+                System.out.println("Job #" + i);
+                for (Map.Entry<String, String> entry : job.entrySet()) {
+                    String key = entry.getKey();
+                    String value = entry.getValue();
+                    System.out.println(key + ": " + value);
+                }
+            }
+        } else {
+            System.out.println("Sorry, no results!");
+        }
     }
 }
