@@ -19,6 +19,10 @@ public class JobData {
 
     private static ArrayList<HashMap<String, String>> allJobs;
 
+    public static ArrayList<HashMap<String, String>> getAllJobs() {
+        return allJobs;
+    }
+
     /**
      * Fetch list of all values from loaded data,
      * without duplicates, for a given column.
@@ -40,7 +44,7 @@ public class JobData {
                 values.add(aValue);
             }
         }
-
+        Collections.sort(values);
         return values;
     }
 
@@ -48,8 +52,8 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-
-        return allJobs;
+        ArrayList<HashMap<String, String>> allJobsCopy = getAllJobs();
+        return allJobsCopy;
     }
 
     /**

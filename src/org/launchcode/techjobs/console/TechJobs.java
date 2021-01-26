@@ -91,11 +91,11 @@ public class TechJobs {
                 System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
             }
 
-            choiceIdx = in.nextInt();
-            in.nextLine();
 
+                choiceIdx = in.nextInt();
+                in.nextLine();
             // Validate user's input
-            //TO DO: add "|| choiceIdx == NaN" or however Java does that
+
             if (choiceIdx < 0 || choiceIdx >= choiceKeys.length) {
                 System.out.println("Invalid choice. Try again.");
             } else {
